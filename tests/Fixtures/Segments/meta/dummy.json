@@ -1,9 +1,16 @@
 {
     "dummyMethod": {
-        "dummyKey": {
-            "name": "DUMMY_NAME",
-            "tags": ["dummy_tag"],
-            "description": "Dummy description"
+        "values": {
+            "dummyKey": {
+                "tags": ["dummy_tag", "dummy_tag_one"],
+                "name": "DUMMY_NAME",
+                "description": "Dummy description"
+            },
+            "dummyKeyTwo": {
+                "tags": ["dummy_tag", "dummy_tag_two"],
+                "name": "DUMMY_NAME",
+                "description": "Dummy description"
+            }
         }
     }
 }

@@ -88,13 +88,15 @@ abstract class AbstractSegment implements SegInterface
         if (! method_exists(static::class, $selfMethod)) {
             throw new EdifactException("Unkow Method '$name'.");
         }
-        if (count($arguments) != 1) {
-            throw new EdifactException("Metacall requiere exact 1 Argument.");
+        if (count($arguments) < 1) {
+            throw new EdifactException("Metacall requiere min 1 Argument.");
         }
 
         $metaMethod = $arguments[0];
 
-        return static::meta()->$metaMethod($selfMethod, $this->$selfMethod());
+        $argumentsTwo = @$arguments[1] ?: $this->$selfMethod();
+
+        return static::meta()->$metaMethod($selfMethod, $argumentsTwo);
     }
 
     public static function meta()

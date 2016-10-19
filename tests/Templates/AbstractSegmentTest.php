@@ -120,8 +120,10 @@ class AbstractSegmentTest extends TestCase
         $segment = Segment::fromSegLine('A+dummyKey');
 
         $this->assertEquals('DUMMY_NAME', $segment->dummyMethodMeta('name'));
-        $this->assertEquals(['dummy_tag'], $segment->dummyMethodMeta('tags'));
+        $this->assertEquals(['dummy_tag', 'dummy_tag_one'], $segment->dummyMethodMeta('tags'));
         $this->assertEquals('Dummy description', $segment->dummyMethodMeta('description'));
+        $this->assertEquals(['dummyKey', 'dummyKeyTwo'], $segment->dummyMethodMeta('keys'));
+        $this->assertEquals(['dummyKey', 'dummyKeyTwo'], $segment->dummyMethodKeys('taggedKeys', ['dummy_tag']));
     }
 
     /** @test */
