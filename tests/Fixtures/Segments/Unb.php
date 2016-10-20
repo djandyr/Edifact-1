@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 namespace Proengeno\Edifact\Test\Fixtures\Segments;
 
 use DateTime;
 use Proengeno\Edifact\Templates\AbstractSegment;
 
-class Unb extends AbstractSegment 
+class Unb extends AbstractSegment
 {
     protected static $validationBlueprint = [
         'UNB' => ['UNB' => 'M|an|3'],

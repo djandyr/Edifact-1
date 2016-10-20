@@ -19,23 +19,23 @@ class SegmentDescriptionTest extends TestCase
      * @test
      * @dataProvider additionProvider
      */
-    public function it_returns_the_meta_attributes($method, $finder, $name, $expected)
+    public function it_returns_the_meta_attributes($groupKey, $dataKey, $finder, $name, $expected)
     {
-        $this->assertEquals($expected, $this->segDescription->$name($method, $finder));
-    }
-
-    /** @test */
-    public function it_throws_an_exception_if_the_name_for_the_given_method_does_not_exists()
-    {
-        $this->expectException(SegmentDesciptionException::class);
-        $this->segDescription->name('invaild_method', 'dummyKey');
+        $this->assertEquals($expected, $this->segDescription->$name($groupKey, $dataKey, $finder));
     }
 
     /** @test */
     public function it_throws_an_exception_if_the_key_for_the_given_method_does_not_exists()
     {
         $this->expectException(SegmentDesciptionException::class);
-        $this->segDescription->name('dummyMethod', 'invalidKey');
+        $this->segDescription->name('groupKey', 'invaildMethodKey', 'invalidValueKeyOne');
+    }
+
+    /** @test */
+    public function it_throws_an_exception_if_the_name_for_the_given_method_does_not_exists()
+    {
+        $this->expectException(SegmentDesciptionException::class);
+        $this->segDescription->name('invalidGroupKey', 'invaildMethodKey', 'valueKeyOne');
     }
 
     /** @test */
@@ -51,13 +51,16 @@ class SegmentDescriptionTest extends TestCase
     public function additionProvider()
     {
         return [
-            ['dummyMethod', 'dummyKey', 'name', 'DUMMY_NAME'],
-            ['dummyMethod', 'dummyKey', 'description', 'Dummy description'],
-            ['dummyMethod', 'dummyKey', 'tags', ['dummy_tag', 'dummy_tag_one']],
-            ['dummyMethod', null, 'keys', ['dummyKey', 'dummyKeyTwo']],
-            ['dummyMethod', ['dummy_tag'], 'taggedKeys', ['dummyKey', 'dummyKeyTwo']],
-            ['dummyMethod', ['dummy_tag_one'], 'taggedKeys', ['dummyKey']],
-            ['dummyMethod', ['dummy_tag_one', 'dummy_tag_two'], 'taggedKeys', ['dummyKey', 'dummyKeyTwo']],
+            ['groupKey', 'dataKey', 'valueKeyOne', 'name', 'NAME_ONE'],
+            ['groupKey', 'dataKey', 'valueKeyOne', 'description', 'Description One'],
+            ['groupKey', 'dataKey', 'valueKeyOne', 'tags', ['tag', 'tag_one']],
+            [null, null, null, 'groupKeys', ['groupKey']],
+            ['groupKey', null, null, 'dataKeys', ['dataKey']],
+            ['groupKey', 'dataKey', null, 'dataKeys', ['dataKey']],
+            ['groupKey', 'dataKey', null, 'valueKeys', ['valueKeyOne', 'valueKeyTwo']],
+            ['groupKey', 'dataKey', ['tag'], 'taggedKeys', ['valueKeyOne', 'valueKeyTwo']],
+            ['groupKey', 'dataKey', ['tag_one'], 'taggedKeys', ['valueKeyOne']],
+            ['groupKey', 'dataKey', ['tag_one', 'tag_two'], 'taggedKeys', ['valueKeyOne', 'valueKeyTwo']],
         ];
     }
 }

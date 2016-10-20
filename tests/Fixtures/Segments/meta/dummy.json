@@ -1,15 +1,20 @@
 {
-    "dummyMethod": {
-        "values": {
-            "dummyKey": {
-                "tags": ["dummy_tag", "dummy_tag_one"],
-                "name": "DUMMY_NAME",
-                "description": "Dummy description"
-            },
-            "dummyKeyTwo": {
-                "tags": ["dummy_tag", "dummy_tag_two"],
-                "name": "DUMMY_NAME",
-                "description": "Dummy description"
+    "groupKey": {
+        "dataKey": {
+            "len": 3,
+            "type": "an",
+            "requiered": true,
+            "values": {
+                "valueKeyOne": {
+                    "tags": ["tag", "tag_one"],
+                    "name": "NAME_ONE",
+                    "description": "Description One"
+                },
+                "valueKeyTwo": {
+                    "tags": ["tag", "tag_two"],
+                    "name": "NAME_TWO",
+                    "description": "Description Two"
+                }
             }
         }
     }

@@ -1,0 +1,64 @@
+{
+    "UNH": {
+        "UNH": {
+            "length": 3,
+            "type": "an",
+            "requiered": true,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        }
+    },
+    "0062": {
+        "0062": {
+            "length": 14,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        }
+    },
+    "S009": {
+        "0065": {
+            "length": 6,
+            "type": "an",
+            "requiered": true,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        },
+        "0052": {
+            "length": 3,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        },
+        "0054": {
+            "length": 3,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        },
+        "0051": {
+            "length": 3,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        },
+        "0057": {
+            "length": 6,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        }
+    }
+}

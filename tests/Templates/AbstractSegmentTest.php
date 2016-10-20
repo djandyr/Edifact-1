@@ -113,38 +113,4 @@ class AbstractSegmentTest extends TestCase
     {
         $this->assertInstanceOf(SegmentDescription::class, Segment::meta());
     }
-
-    /** @test */
-    public function it_returns_the_metadata_with_magic_calls()
-    {
-        $segment = Segment::fromSegLine('A+dummyKey');
-
-        $this->assertEquals('DUMMY_NAME', $segment->dummyMethodMeta('name'));
-        $this->assertEquals(['dummy_tag', 'dummy_tag_one'], $segment->dummyMethodMeta('tags'));
-        $this->assertEquals('Dummy description', $segment->dummyMethodMeta('description'));
-        $this->assertEquals(['dummyKey', 'dummyKeyTwo'], $segment->dummyMethodMeta('keys'));
-        $this->assertEquals(['dummyKey', 'dummyKeyTwo'], $segment->dummyMethodKeys('taggedKeys', ['dummy_tag']));
-    }
-
-    /** @test */
-    public function it_throws_an_exception_if_the_magic_call_has_more_then_one_attribute()
-    {
-        $segment = Segment::fromSegLine('A+dummyKey');
-
-        $this->expectException(EdifactException::class);
-
-        $segment->invaldCall('description');
-        $segment->dummyMethodMeta();
-    }
-
-    /** @test */
-    public function it_throws_an_exception_if_the_magic_call_can_not_method_could_not_resolve()
-    {
-        $segment = Segment::fromSegLine('A+dummyKey');
-
-        $this->expectException(EdifactException::class);
-
-        $segment->invaldCall('description');
-        $segment->dummyMethodMeta();
-    }
 }

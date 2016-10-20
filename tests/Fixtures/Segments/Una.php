@@ -1,12 +1,14 @@
-<?php 
+<?php
 
 namespace Proengeno\Edifact\Test\Fixtures\Segments;
 
 use Proengeno\Edifact\Message\Delimiter;
 use Proengeno\Edifact\Templates\AbstractSegment;
 
-class Una extends AbstractSegment 
+class Una extends AbstractSegment
 {
+    protected static $jsonDescribtion = __DIR__ . '/meta/una.json';
+
     protected static $validationBlueprint = [
         'UNA' => ['Una' => 'M|a|3', 'data' => 'M|an|1', 'dataGroup' => 'M|an|1', 'decimal' => 'M|an|1', 'terminator' => 'M|an|1', 'empty' => 'M|an|1'],
     ];

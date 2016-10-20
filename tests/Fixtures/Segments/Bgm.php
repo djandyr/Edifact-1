@@ -1,11 +1,13 @@
-<?php 
+<?php
 
 namespace Proengeno\Edifact\Test\Fixtures\Segments;
 
 use Proengeno\Edifact\Templates\AbstractSegment;
 
-class Bgm extends AbstractSegment 
+class Bgm extends AbstractSegment
 {
+    protected static $jsonDescribtion = __DIR__ . '/meta/bgm.json';
+
     protected static $validationBlueprint = [
         'BGM' => ['BGM' => 'M|a|3'],
         'C002' => ['1001' => 'M|an|3'],

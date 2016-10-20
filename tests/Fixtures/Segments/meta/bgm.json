@@ -1,0 +1,42 @@
+{
+    "BGM": {
+        "BGM": {
+            "length": 3,
+            "type": "an",
+            "requiered": true,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        }
+    },
+    "C002": {
+        "1001": {
+            "length": 3,
+            "type": "an",
+            "requiered": true,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        }
+    },
+    "C106": {
+        "1004": {
+            "length": 35,
+            "type": "an",
+            "requiered": true,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        }
+    },
+    "1225": {
+        "1225": {
+            "length": 3,
+            "type": "an",
+            "requiered": false,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        }
+    }
+}

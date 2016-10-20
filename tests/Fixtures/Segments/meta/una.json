@@ -1,0 +1,52 @@
+{
+    "UNA": {
+        "Una": {
+            "length": 3,
+            "type": "an",
+            "requiered": true,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        },
+        "data": {
+            "length": 1,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        },
+        "dataGroup": {
+            "length": 1,
+            "type": "an",
+            "requiered": true,
+            "tags": [""],
+            "name": "",
+            "description": ""
+        },
+        "decimal": {
+            "length": 1,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        },
+        "terminator": {
+            "length": 1,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        },
+        "empty": {
+            "length": 1,
+            "type": "an",
+            "requiered": true,
+            "tags": ["o"],
+            "name": "",
+            "description": ""
+        }
+    }
+}

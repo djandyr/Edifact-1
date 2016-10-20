@@ -63,7 +63,7 @@ abstract class AbstractSegment implements SegInterface
 
     public function validate()
     {
-        $this->validator->validate(static::$validationBlueprint, $this->elements);
+        $this->validator->validate(static::meta(), $this->elements);
 
         return $this;
     }
@@ -79,24 +79,6 @@ abstract class AbstractSegment implements SegInterface
         }
 
         return $this->cache['segLine'] . $this->delimiter->getSegment();
-    }
-
-    public function __call($name, $arguments)
-    {
-        $selfMethod = substr($name, 0, -4);
-
-        if (! method_exists(static::class, $selfMethod)) {
-            throw new EdifactException("Unkow Method '$name'.");
-        }
-        if (count($arguments) < 1) {
-            throw new EdifactException("Metacall requiere min 1 Argument.");
-        }
-
-        $metaMethod = $arguments[0];
-
-        $argumentsTwo = @$arguments[1] ?: $this->$selfMethod();
-
-        return static::meta()->$metaMethod($selfMethod, $argumentsTwo);
     }
 
     public static function meta()

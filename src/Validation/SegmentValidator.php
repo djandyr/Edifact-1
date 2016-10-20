@@ -1,31 +1,29 @@
-<?php 
+<?php
 
 namespace Proengeno\Edifact\Validation;
 
 use Proengeno\Edifact\Interfaces\SegValidatorInterface;
 use Proengeno\Edifact\Exceptions\SegValidationException;
 
-class SegmentValidator implements SegValidatorInterface 
+class SegmentValidator implements SegValidatorInterface
 {
     const ALPHA = 'a';
     const NUMERIC = 'n';
     const ALPHA_NUMERIC = 'an';
 
-    public function validate($blueprint, $data)
+    public function validate($segDestription, $data)
     {
-        foreach ($blueprint as $dataGroupKey => $dataGroup) {
-            foreach ($dataGroup as $dataKey => $validation) {
-                if ($validation !== null) {
-                    list($necessaryStatus, $type, $lenght) = explode('|', $validation);
-
-                    if ($this->isDatafieldOptional($necessaryStatus) && !$this->isDataIsAvailable($data, $dataGroupKey, $dataKey)) {
+        foreach ($segDestription->all() as $dataGroupKey => $dataGroup) {
+            foreach ($dataGroup as $dataKey => $value) {
+                if ($value !== null) {
+                    if (!$value['requiered'] && !$this->isDataIsAvailable($data, $dataGroupKey, $dataKey)) {
                         $this->cleanUp($data, $dataGroupKey, $dataKey);
                         continue;
                     }
 
                     $this->checkAvailability($data, $dataGroupKey, $dataKey);
-                    $this->checkStringType($type, $data, $dataGroupKey, $dataKey);
-                    $this->checkStringLenght($lenght, $data, $dataGroupKey, $dataKey);
+                    $this->checkStringType($value['type'], $data, $dataGroupKey, $dataKey);
+                    $this->checkStringLenght($value['length'], $data, $dataGroupKey, $dataKey);
                 }
                 $this->cleanUp($data, $dataGroupKey, $dataKey);
             }
@@ -36,7 +34,7 @@ class SegmentValidator implements SegValidatorInterface
 
         return $this;
     }
-    
+
     private function checkUnknowDataGroup($data)
     {
         if (empty($data)) {
@@ -107,7 +105,7 @@ class SegmentValidator implements SegValidatorInterface
             throw SegValidationException::forKeyValue($dataKey, $string, 'Data-Element contains non-alpha characters.', 3);
         }
     }
-    
+
     private function checkStringLenght($lenght, $data, $dataGroupKey, $dataKey)
     {
         $string = $data[$dataGroupKey][$dataKey];

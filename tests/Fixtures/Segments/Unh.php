@@ -1,11 +1,13 @@
-<?php 
+<?php
 
 namespace Proengeno\Edifact\Test\Fixtures\Segments;
 
 use Proengeno\Edifact\Templates\AbstractSegment;
 
-class Unh extends AbstractSegment 
+class Unh extends AbstractSegment
 {
+    protected static $jsonDescribtion = __DIR__ . '/meta/unh.json';
+
     protected static $validationBlueprint = [
         'UNH' => ['UNH' => 'M|an|3'],
         '0062' => ['0062' => 'M|an|14'],
